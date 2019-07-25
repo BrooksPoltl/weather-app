@@ -126,3 +126,17 @@ desired temperature range and a dot showing the current temperature in that city
 to their list.
 
 - [ ] Mobile App.
+
+## day 1 goals:
+  * setup boilerplate
+  * Complete MVP functionality
+  * Complete styling
+## day 2 goals:
+  * complete any unmet day 1 goals
+  * build out backend 
+  * create signup and login page
+  * refactor app to fit in auth
+  * implement graph 
+## if way ahead:
+  * create mobile app
+
