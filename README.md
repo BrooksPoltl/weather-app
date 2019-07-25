@@ -1,6 +1,8 @@
 # Weather App
-
-
+### trello board
+https://trello.com/b/625C4IAO/weather-app
+### deployment URL
+ Placeholder
 ## Models
 -------------
 ### User
