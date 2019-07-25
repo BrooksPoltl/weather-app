@@ -86,7 +86,11 @@
   * Lighter Blue (#CBF3F0)
   * Darker Blue (#0055AA)
   * White (#FFFFFF)
-  
+
+## Competitors 
+ * [weather.com](https://weather.com/)
+ * [accuWeather.com](https://www.accuweather.com/)
+ * [weather.gov](https://www.weather.gov/)
 ## Functionality
 -------------
 ### MVP
