@@ -1,5 +1,6 @@
 # Weather App
--------------
+
+
 ## Models
 -------------
 ### User
@@ -84,6 +85,7 @@
   * Lighter Orange (#FFBF69)
   * Lighter Blue (#CBF3F0)
   * Darker Blue (#0055AA)
+  * White (#FFFFFF)
   
 ## Functionality
 -------------
