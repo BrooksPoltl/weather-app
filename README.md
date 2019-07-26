@@ -14,8 +14,16 @@ https://balsamiq.cloud/stofa4k/p531wha
       id: ID!,
       username: String!,
       password: String!,
-      cityList: [Strings],
+      cityList: [cityData],
       defaultRange: [int]
+    }
+  ```
+### cityData
+  ```
+    {
+      id: ID!,
+      userId: ID!,
+      range: [int]
     }
   ```
 ## tools
