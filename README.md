@@ -4,7 +4,7 @@ https://trello.com/b/625C4IAO/weather-app
 ### deployment URL
  Placeholder
 ### Wireframe
-https://balsamiq.cloud/stofa4k/p531wha/rB7B5
+https://balsamiq.cloud/stofa4k/p531wha
 
 ## Models
 -------------
