@@ -48,13 +48,39 @@ export const deleteCity = (array,index, inRange) =>{
 export const editRange = (array,index,inRange, minimum = null, maximum = null) =>{
     return dispatch =>{
         dispatch({type: EDITING_RANGE });
+
+        const temp = array[index]["temperature"];
         const newArr = array;
-        if(minimum){
+        let didArrayChange = false;
+
+        
+        if(minimum !== null){
             newArr[index]["range"][0] = minimum;
         }
-        if(maximum){
+        if(maximum !== null){
             newArr[index]["range"][1] = maximum;
         }
-        dispatch({type: EDITED_RANGE, payload: { array: newArr, inRange }})
+
+        const editedItem = newArr[index];
+
+        /*  checking the edited array to see 
+            if the array it belongs to changes it then deletes item 
+        */
+        if(temp>= minimum && temp <=maximum ){
+            if(inRange !== true){
+                newArr.splice(index,1);
+                editedItem.inRange = true;
+                didArrayChange = true;
+            }
+        }else{
+            if(inRange === true){
+                newArr.splice(index,1);
+                editedItem.inRange = false;
+                didArrayChange = true;
+            }
+        }
+        didArrayChange?
+            dispatch({type: EDITED_RANGE, payload: { inRange: !inRange, editedItem, newArr }}):
+            dispatch({type: EDITED_RANGE, payload: { inRange, array: newArr }})
     }
 }
