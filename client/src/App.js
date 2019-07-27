@@ -5,7 +5,7 @@ import { fetchWeather } from './actions';
 
 const App = (props) => {
   useEffect(()=>{
-      let response = props.fetchWeather();
+      let response = props.fetchWeather("london");
         console.log(response)
   },[])
   return (
