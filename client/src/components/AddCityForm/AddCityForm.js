@@ -29,12 +29,14 @@ const AddCityForm = (props) =>{
                 type = "text" 
                 onChange = {(event)=>  changeHandler(event,cityData,setCityData)}
                 name = "minimum"
+                pattern="[0-9]*"
                 value = {cityData.minimum}
             />
             <input 
                 type = "text" 
                 onChange = {(event)=>   changeHandler(event,cityData,setCityData)}
                 name = "maximum"
+                pattern="[0-9]*"
                 value = {cityData.maximum}
             />
             <button disabled  = {valid}>add city</button>
