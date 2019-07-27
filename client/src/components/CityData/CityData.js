@@ -9,7 +9,6 @@ const CityData = (props) =>{
         event.preventDefault();
         newRange.minimum = Number(newRange.minimum);
         newRange.maximum = Number(newRange.maximum);
-        console.log("edit")
         if(inRange){
             await props.editRange(props.inRangeCities,index,inRange, newRange.minimum, newRange.maximum)
         }
@@ -29,6 +28,7 @@ const CityData = (props) =>{
             <div>
                 {props.inRangeCities.map((city, index) =>{
                         return <CityDataCard 
+                                cities = {props.inRangeCities}
                                 editing = {editing}
                                 setEditing = {setEditing}
                                 newRange = {newRange}
@@ -43,6 +43,7 @@ const CityData = (props) =>{
                 {
                 props.notInRangeCities.map((city, index) =>{
                         return <CityDataCard 
+                                cities = {props.notInRangeCities}
                                 editing = {editing}
                                 setEditing = {setEditing}
                                 newRange = {newRange}
