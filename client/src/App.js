@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { fetchWeather } from './actions';
 
 import AddCityForm from './components/AddCityForm/AddCityForm';
+import CityData from './components/CityData/CityData';
 
 const App = (props) => {
   return (
     <div >
         <AddCityForm {...props}/>
+        <CityData {...props}/>
     </div>
   );
 }
