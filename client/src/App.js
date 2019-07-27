@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather } from './actions';
 
 
 const App = (props) => {
   useEffect(()=>{
-      let response = props.fetchWeather("london");
-        console.log(response)
+    props.fetchWeather("allen", [50,80])
+    props.fetchWeather("london", [50,80])
+    props.fetchWeather("london", [50,80])
   },[])
   return (
     <div >
@@ -17,7 +18,8 @@ const App = (props) => {
 
 const mapStatetoProps = state =>{
     return {
-      counter: state.weatherReducer.counter
+      inRangeCities: state.weatherReducer.inRangeCities,
+      notInRangeCities: state.weatherReducer.notInRangeCities,
     }
 }
 

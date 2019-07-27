@@ -5,14 +5,31 @@ import {
 } from '../actions';
 
 const initialState = {
-    counter: 0,
+    fetchingWeather: false,
+    fetchedWeather: false,
+    inRangeCities:[],
+    notInRangeCities: [],
+    error:null,
 }
 
 export const weatherReducer = (prevState = initialState, action) =>{
     switch(action.type){
-        case FETCHED_WEATHER: return { ...prevState, counter: 1 }
-        case FETCHING_WEATHER: return {...prevState, counter: 1}
-        case ERROR: return {...prevState, counter: 1}
+        case FETCHING_WEATHER: return {...prevState, fetchingWeather: true }
+        case FETCHED_WEATHER: 
+            if(action.payload.inRange){
+                return {
+                    ...prevState,
+                    fetchedWeather: true, 
+                    inRangeCities: [...prevState.inRangeCities, action.payload]
+                }
+            }else{
+                return {
+                    ...prevState,
+                    fetchedWeather: true, 
+                    notInRangeCities: [...prevState.notInRangeCities, action.payload]
+                }
+            }
+        case ERROR: return {...prevState, error: action.payload }
         default: return prevState;
     }
 }
