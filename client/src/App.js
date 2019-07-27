@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather } from './actions';
 
 
-const App = () => {
+const App = (props) => {
+  useEffect(()=>{
+      let response = props.fetchWeather();
+        console.log(response)
+  },[])
   return (
     <div >
         weather app

@@ -7,8 +7,7 @@ export const ERROR = 'ERROR';
 
 export const fetchWeather = weather =>{
     return dispatch => {
-        dispatch({ type: FETCHING_WEATHER });
-
+        
 
     }
 }
