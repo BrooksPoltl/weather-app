@@ -12,6 +12,8 @@ const AddCityForm = (props) =>{
     },[cityData])
 
     const submitHandler = (event) =>{
+        cityData.maximum = Number(cityData.maximum);
+        cityData.minimum = Number(cityData.minimum);
         event.preventDefault();
         props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum])
         setCityData({city: "", minimum: null, maximum:null})

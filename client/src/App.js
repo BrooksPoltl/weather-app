@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchWeather, deleteCityData } from './actions';
+import { fetchWeather, deleteCity } from './actions';
 
 import AddCityForm from './components/AddCityForm/AddCityForm';
 import CityData from './components/CityData/CityData';
@@ -21,4 +21,4 @@ const mapStatetoProps = state =>{
     }
 }
 
-export default connect(mapStatetoProps,{ fetchWeather,deleteCityData })(App);
+export default connect(mapStatetoProps,{ fetchWeather,deleteCity })(App);
