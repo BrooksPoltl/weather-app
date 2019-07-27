@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchWeather } from './actions';
 
 
-
-function App() {
+const App = () => {
   return (
     <div >
         weather app
@@ -10,4 +11,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStatetoProps = state =>{
+    return {
+      counter: state.weatherReducer.counter
+    }
+}
+
+export default connect(mapStatetoProps,{ fetchWeather })(App);
