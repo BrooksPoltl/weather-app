@@ -3,7 +3,7 @@ import changeHandler from '../../helpers/changeHandler'
 import { checkValid } from './helper';
 
 const AddCityForm = (props) =>{
-    const [cityData, setCityData] = useState({city: "", minimum:0, maximum:0});
+    const [cityData, setCityData] = useState({city: "", minimum:null, maximum:null});
     const [valid, setValid] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -13,10 +13,8 @@ const AddCityForm = (props) =>{
 
     const submitHandler = (event) =>{
         event.preventDefault();
-        cityData.minimum = Number(cityData.minimum)
-        cityData.maximum = Number(cityData.maximum)
         props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum])
-        setCityData({city: "", minimum: "", maximum:""})
+        setCityData({city: "", minimum: null, maximum:null})
     }
     return (
         <div>
@@ -29,18 +27,16 @@ const AddCityForm = (props) =>{
                     placeholder = "city"
                 />
                 <input 
-                    type = "text" 
+                    type = "number" 
                     onChange = {(event)=>  changeHandler(event,cityData,setCityData)}
                     name = "minimum"
-                    pattern="[0-9]*"
                     value = {cityData.minimum}
                     placeholder = "min degrees"
                 />
                 <input 
-                    type = "text" 
+                    type = "number" 
                     onChange = {(event)=>   changeHandler(event,cityData,setCityData)}
                     name = "maximum"
-                    pattern="[0-9]*"
                     value = {cityData.maximum}
                     placeholder = "max degrees"
                 />

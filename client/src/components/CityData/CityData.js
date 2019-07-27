@@ -2,7 +2,7 @@ import React from 'react';
 import CityDataCard from './CityDataCard';
 
 const CityData = (props) =>{
-    console.log(props)
+
     return (
         <div>
             <div style = {{display: "flex"}}>
@@ -13,10 +13,22 @@ const CityData = (props) =>{
             </div>
             <div>
                 {props.inRangeCities.map((city, index) =>{
-                    return <CityDataCard city = {city} key = {index} />
+                    return <CityDataCard 
+                                cities = {props.inRangeCities} 
+                                city = {city} 
+                                key = {index} 
+                                index = {index}
+                                {...props}
+                            />
                 })}
                 {props.notInRangeCities.map((city, index) =>{
-                    return <CityDataCard city = {city} key = {index} />
+                    return <CityDataCard 
+                                cities = {props.notInRangeCities} 
+                                city = {city} 
+                                key = {index} 
+                                index = {index}
+                                {...props}
+                            />
                 })}
             </div>
         </div>
