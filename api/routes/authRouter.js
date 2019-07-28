@@ -20,7 +20,10 @@ router.post('/register', (req, res) => {
         .then (result => {
         res.status (201).json (result);
         })
-        .catch (err => res.status (500).json ({errorMessage:'error registering user.'}));
+        .catch (err =>{ 
+          console.log(err)
+          res.status (500).json ({errorMessage:'error registering user.'})
+        });
 });
 
 router.post ('/login', (req, res) => {
