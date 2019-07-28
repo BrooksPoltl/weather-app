@@ -25,7 +25,10 @@ const mapStatetoProps = state =>{
       inRangeCities: state.weatherReducer.inRangeCities,
       notInRangeCities: state.weatherReducer.notInRangeCities,
       fetchingWeather: state.weatherReducer.fetchingWeather,
-      error: state.weatherReducer.error
+      error: state.weatherReducer.error,
+      registerError: state.authReducer.registerError,
+      registering: state.authReducer.registering,
+      registered: state.authReducer.registered
     }
 }
 

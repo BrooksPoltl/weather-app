@@ -1,10 +1,16 @@
-import React,  { useState } from 'react';
+import React,  { useState, useEffect } from 'react';
 
 import changeHandler from '../../helpers/changeHandler';
+import { LoadingIcon }  from '../AddCityForm/AddCityForm.styling';
 
 const SignupForm = (props) =>{
     const [user, setUser] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
+    useEffect(()=>{
+        if(props.registerError){
+            setErrorMessage("could not register, please try a different username");
+        }
+    })
     const handleSubmit = (event) =>{
         event.preventDefault();
 
@@ -37,7 +43,18 @@ const SignupForm = (props) =>{
                     name = "confirmPassword"
                     onChange = {(event) =>changeHandler(event, user, setUser)}
                 />
-                <button onClick = {(event)=>handleSubmit(event)}>submit</button>
+                {
+                    props.registering
+                    ?   <LoadingIcon>
+                            <i className="fas fa-circle-notch fa-spin"></i>
+                        </LoadingIcon>
+                    :   <button onClick = {(event)=>handleSubmit(event)}>submit</button>
+                }
+                {
+                    errorMessage
+                    ?<p>{errorMessage}</p>
+                    :null
+                }
             </form>
         </div>
     )

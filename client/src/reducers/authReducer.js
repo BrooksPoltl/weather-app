@@ -24,10 +24,10 @@ export const authReducer = (prevState = initialState, action) =>{
     switch(action.type){
         case REGISTERING:return {...prevState, registering: true}
         case REGISTERED: return {...prevState, registering: false, registered: true}
-        case REGISTER_ERROR: return {...prevState, registerError: action.payload}
+        case REGISTER_ERROR: return {...prevState, registerError: action.payload, registering: false}
         case LOGGING_IN: return {...prevState, loggingIn: true}
         case LOGGED_IN: return {...prevState, loggedIn: true, loggingIn: false}
-        case LOGIN_ERROR: return {...prevState, loginError: true}
+        case LOGIN_ERROR: return {...prevState, loginError: true, loggingIn: false}
 
         default: return prevState;
     }

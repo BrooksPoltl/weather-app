@@ -9,7 +9,11 @@ const LandingPage = (props) =>{
     return (
         <AppContainer>
             <Header/>
-            <SignupForm {...props}/>
+            {
+                props.registered
+                ?<p>Thanks for signing up</p>
+                :<SignupForm {...props}/>
+            }
         </AppContainer>
     )
 }
