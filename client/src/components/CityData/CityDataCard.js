@@ -1,30 +1,53 @@
 import React from 'react';
 import {
-    CardContainer
+    CardContainer,
+    TemperatureText,
+    SubmitButton,
+    RangeInput
 } from './styling/CityDataCard.styling'
 
-import CityDataCardForm from './CityDataCardForm';
-import RangeData from './RangeData';
+import changeHandler from '../../helpers/changeHandler';
+import CityDataIcons from './CityDataIcons';
 
 const CityDataCard = (props) =>{
+    const handleSubmit=(event)=>{
+        props.handleEdit(event, props.index,props.city.inRange)
+
+    }
     return(
-        <CardContainer>
-            <p>{props.city.city}</p>
-            <p>{props.city.temperature}</p>
-            { props.editing
-                ?   <CityDataCardForm {...props} />
-                :   <RangeData {...props}/>
+        <CardContainer editing = {props.editing}>
+            <p style = {{  fontWeight: "bold",lineHeight:"36px", width: "15%", border:"1px solid red"}}>{props.city.city}</p>
+            <TemperatureText>{props.city.temperature}°F</TemperatureText>
+            {!props.editing
+                ? <TemperatureText>{props.city.range[0]}°F</TemperatureText>
+                :<RangeInput
+                    type = "number" 
+                    value = {props.newRange.minimum} 
+                    name = "minimum" 
+                    placeholder = "minimum"
+                    onChange = {(event)=>changeHandler(event,props.newRange, props.setNewRange)}
+                />
             }
-            <div>
-                <div onClick ={()=>props.deleteCity(props.cities,props.city.index,props.city.inRange)}>
-                    <i className ="fas fa-trash-alt">
-                    </i> 
-                </div>
-                <div onClick = {()=>props.setEditing(!props.editing)}>
-                    <i className ="fas fa-edit">
-                    </i>
-                </div>
-            </div>
+            {!props.editing
+                ? <TemperatureText>{props.city.range[1]}°F</TemperatureText>
+                :<RangeInput
+                    type = "number" 
+                    value = {props.newRange.maximum} 
+                    name = "maximum" 
+                    placeholder = "maximum"
+                    onChange = {(event)=>changeHandler(event,props.newRange, props.setNewRange)}
+            />
+            }
+            {!props.editing
+                ? null
+                :<SubmitButton
+                    onClick = {(event)=>handleSubmit(event)}>
+                        submit
+                </SubmitButton>
+
+            }
+            <CityDataIcons {...props}/>
+           
         </CardContainer>
     )
 }
