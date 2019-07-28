@@ -1,6 +1,6 @@
 const knex = require('knex');
 const knexConfig = require('../../knexfile')
-const db = knex(knexConfig.development)
+const db = knex(knexConfig.production)
 const jwt = require('jsonwebtoken')
 const env = require ('dotenv').config ();
 
