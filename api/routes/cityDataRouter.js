@@ -9,8 +9,6 @@ const weatherHelper = require('../helpers/weatherHelper');
 
 router.post('/citydata',lock, (req,res)=>{
     const body = req.body;
-    console.log(body)
-    console.log(req)
     const cityData = {user_id: req.decodedToken.id, city: body.city, minimum: body.range[0], maximum: body.range[1]};
     console.log(cityData)
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityData.city}&appid=${process.env.WEATHER_API_KEY}`)
@@ -20,6 +18,7 @@ router.post('/citydata',lock, (req,res)=>{
                     }).catch (err => res.status (500).json ({errorMessage:'error adding city'}));
             })
             .catch(err => {
+                console.log(error)
                return  res.status(500).json({errorMessage: "could not get city data"})
         })
    

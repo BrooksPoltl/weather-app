@@ -23,7 +23,6 @@ const AddCityForm = (props) =>{
     const [cityData, setCityData] = useState({city: ""});
     const [valid, setValid] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
-    console.log(props)
     useEffect(()=>{
         checkValid(cityData,setValid,setErrorMessage);
         if(props.error){
@@ -34,11 +33,17 @@ const AddCityForm = (props) =>{
     },[cityData, props.error]);
 
     const submitHandler = (event) =>{
+        event.preventDefault();
         cityData.maximum = Number(cityData.maximum);
         cityData.minimum = Number(cityData.minimum);
-        event.preventDefault();
-        props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum]);
-        setCityData({city: "", maximum: 0, minimum: 0});
+        const token = localStorage.getItem('token');
+        if(token){  
+            props.addCity({city: cityData.city, range:[cityData.minimum, cityData.maximum]})
+        }else{
+            props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum]);
+            setCityData({city: "", maximum: 0, minimum: 0});
+        }
+        
     }
 
     return (

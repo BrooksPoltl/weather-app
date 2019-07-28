@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const ERROR = 'ERROR';
+
 
 export const REGISTERING = 'REGISTERING';
 export const REGISTERED = 'REGISTERED';

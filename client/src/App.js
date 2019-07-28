@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather, deleteCity, editRange } from './actions';
 import { login, register } from './actions/Auth';
+import { addCity } from './actions/loggedIn';
+
 import { withRouter, Route, Switch } from 'react-router';
 
 import DashboardPage from './pages/DashboardPage/DashboardPage';
@@ -31,8 +33,10 @@ const mapStatetoProps = state =>{
       registered: state.authReducer.registered,
       loggingIn: state.authReducer.loggingIn,
       loggedIn: state.authReducer.loggedIn,
-      loginError: state.authReducer.loginError
+      loginError: state.authReducer.loginError,
+      addingCity: state.loggedInReducer.addingCity,
+      addedCity: state.loggedInReducer.addedCity
     }
 }
 
-export default withRouter(connect(mapStatetoProps,{ fetchWeather,deleteCity, editRange, login, register })(App));
+export default withRouter(connect(mapStatetoProps,{ fetchWeather,deleteCity, editRange, login, register,addCity })(App));
