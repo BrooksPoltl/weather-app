@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header';
 import { 
   AppContainer,
   TopSectionContainer
-} from './App.styling';
+} from './DashboardPage.styling';
 
 const DashboardPage = (props) =>{
     return (
