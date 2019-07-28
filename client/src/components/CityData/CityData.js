@@ -2,7 +2,9 @@ import React,{ useState } from 'react';
 import CityDataCard from './CityDataCard';
 import {
     LabelContainer,
-    LabelHeader
+    LabelHeader,
+    DescriptiveText,
+    CitiesLabels
 } from './styling/CityData.styling'
 
 const CityData = (props) =>{
@@ -24,13 +26,15 @@ const CityData = (props) =>{
     return (
         <div>
             <LabelHeader>Your cities:</LabelHeader>
-            <LabelContainer>
-                <p>city:</p>
-                <p>temperature:</p>
-                <p>min degrees:</p>
-                <p>max degrees:</p>
-            </LabelContainer>
+            
             <div>
+                <CitiesLabels>Cities that match your range:</CitiesLabels>
+                <LabelContainer>
+                    <DescriptiveText>city:</DescriptiveText>
+                    <DescriptiveText>temperature:</DescriptiveText>
+                    <DescriptiveText>min degrees:</DescriptiveText>
+                    <DescriptiveText>max degrees:</DescriptiveText>
+                </LabelContainer>
                 {props.inRangeCities.map((city, index) =>{
                         return <CityDataCard 
                                 cities = {props.inRangeCities}
@@ -45,6 +49,13 @@ const CityData = (props) =>{
                                 {...props}
                             />
                 })}
+                <CitiesLabels>Cities that are out of your range:</CitiesLabels>
+                <LabelContainer>
+                    <DescriptiveText>city:</DescriptiveText>
+                    <DescriptiveText>temperature:</DescriptiveText>
+                    <DescriptiveText>min degrees:</DescriptiveText>
+                    <DescriptiveText>max degrees:</DescriptiveText>
+                </LabelContainer>
                 {
                 props.notInRangeCities.map((city, index) =>{
                         return <CityDataCard 

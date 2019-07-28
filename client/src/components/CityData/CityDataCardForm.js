@@ -7,7 +7,7 @@ const CityDataCardForm = (props)=>{
 
     }
     return(
-        <form>
+        <form style = {{display: "flex"}}>
                 <input 
                     type = "number" 
                     value = {props.newRange.minimum} 

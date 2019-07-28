@@ -1,12 +1,14 @@
 import React from 'react';
-
+import {
+    CardContainer
+} from './styling/CityDataCard.styling'
 
 import CityDataCardForm from './CityDataCardForm';
 import RangeData from './RangeData';
 
 const CityDataCard = (props) =>{
     return(
-        <div>
+        <CardContainer>
             <p>{props.city.city}</p>
             <p>{props.city.temperature}</p>
             { props.editing
@@ -23,7 +25,7 @@ const CityDataCard = (props) =>{
                     </i>
                 </div>
             </div>
-        </div>
+        </CardContainer>
     )
 }
 

@@ -11,7 +11,8 @@ import {
     CityInput,
     FormHeader,
     FormButton,
-    ButtonWrapper
+    ButtonWrapper,
+    InputWrapper
 } from './AddCityForm.styling'
 
 const AddCityForm = (props) =>{
@@ -34,7 +35,7 @@ const AddCityForm = (props) =>{
         <FormContainer>
             <FormHeader>Add a City</FormHeader>
             <CityForm onSubmit = {submitHandler} autoComplete = "off">
-                <div>
+                <InputWrapper>
                     <InputLabel>city</InputLabel>
                     <CityInput 
                         type = "text" 
@@ -43,8 +44,8 @@ const AddCityForm = (props) =>{
                         value = {cityData.city}
                         placeholder = "city"
                     />
-                </div>
-                <div>
+                </InputWrapper>
+                <InputWrapper>
                     <InputLabel>min degrees °F</InputLabel>
                     <RangeInputContainer>
                         <RangeInput 
@@ -56,8 +57,8 @@ const AddCityForm = (props) =>{
                         />
                         <RangeSymbol>°F</RangeSymbol>
                     </RangeInputContainer>
-                </div>
-                <div>
+                </InputWrapper>
+                <InputWrapper>
                     <InputLabel>max degrees °F</InputLabel>
                     <RangeInputContainer>
                         <RangeInput 
@@ -69,7 +70,7 @@ const AddCityForm = (props) =>{
                         />
                         <RangeSymbol>°F</RangeSymbol>
                     </RangeInputContainer>
-                </div>
+                </InputWrapper>
                 <ButtonWrapper disabled = {valid}>
                     <FormButton disabled  = {valid}>add city</FormButton>
                 </ButtonWrapper>

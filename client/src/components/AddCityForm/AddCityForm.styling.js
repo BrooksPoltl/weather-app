@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const FormContainer = styled('div')`
-    border: 1px solid red;
+    border: 3px solid Blue;
+    border-radius: 8px;
+    background: white;
+    padding: 20px;
     width: 40%;
 `
 
@@ -11,30 +14,40 @@ export const CityForm = styled('form')`
     justify-content: space-between;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
     width: 100%;
     margin: 30px 0px;
 `
 
 export const InputLabel = styled('label')`
     display: block;
+    align: left;
+    font-weight: bold;
+    margin: 10px 0px;
 `
 
 export const RangeInputContainer = styled('div')`
     display: flex;
     flex-direction:row;
-    border: 1px solid red;
-    width: 150px;
+
+
 `
 export const RangeInput = styled('input')`
     width: 100%;
-
+    border: 2px solid blue;
+    border-radius: 2px;
+    height: 18px;
+    margin-right: 3px;
+    padding: 3px;
 `
 export const RangeSymbol = styled('div')`
-
+    font-weight: bold;
 `
 export const CityInput = styled('input')`
-    width: 150px;
+    width: calc(100% - 28px);
+    height: 18px;
+    border: 2px solid blue;
+    border-radius: 2px;
+    padding: 3px;
 `
 
 export const FormHeader = styled('h1')`
@@ -57,4 +70,11 @@ export const ButtonWrapper = styled('div')`
     position: relative;
     border-radius: 5px;
 
+`
+export const InputWrapper = styled('div')`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
 `

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 
 export const AppContainer = styled('div')`
-    border: 1px solid red;
+    min-height: 100vh;
+    background: linear-gradient(#FF9F1C, #FFBF69);
     padding: 5% 10%;
 `
 export const TopSectionContainer = styled('div')`
