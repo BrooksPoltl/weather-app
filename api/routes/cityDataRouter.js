@@ -18,7 +18,7 @@ router.post('/citydata',lock, (req,res)=>{
                     }).catch (err => res.status (500).json ({errorMessage:'error adding city'}));
             })
             .catch(err => {
-                console.log(error)
+                console.log(err)
                return  res.status(500).json({errorMessage: "could not get city data"})
         })
    
