@@ -10,7 +10,7 @@ localPbConnection = {
 const pg = require('pg');
 
 const prodDbConnection = process.env.DATABASE_URL || localPbConnection
-console.Log(prodDbConnection)
+console.log(prodDbConnection)
 
 module.exports = {
 
