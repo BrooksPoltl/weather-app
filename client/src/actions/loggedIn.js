@@ -29,18 +29,23 @@ export const DELETED_CITY = 'DELETED_CITY';
 
 const BASE_URL = "https://weather-project-api.herokuapp.com";
 
-
+const token = localStorage.getItem('token');
+const request = {
+    headers: {
+        authorization: token,
+    },
+}
 
 export const addCity = (body) =>{
     return dispatch=>{
         dispatch({type: ADDING_CITY});
+  
         const token = localStorage.getItem('token');
         const request = {
             headers: {
                 authorization: token,
             },
         }
-        console.log(token)
         axios.post(`${BASE_URL}/api/citydata`,body,request).then(res=>{
             console.log(res);
             dispatch({type: ADDED_CITY, payload: res})
@@ -52,7 +57,21 @@ export const addCity = (body) =>{
 }
 
 export const getCities = () =>{
-
+    return dispatch =>{
+        dispatch({type: GETTING_CITIES})
+        const token = localStorage.getItem('token');
+        const request = {
+            headers: {
+                authorization: token,
+            },
+        }
+        axios.get(`${BASE_URL}/api/citydata`, request).then(res=>{
+            console.log(res);
+            dispatch({type: GOT_CITIES, payload: res})
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 }
 
 export const changeRange = () =>{
