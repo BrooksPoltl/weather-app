@@ -31,6 +31,10 @@ export const RangeInput = styled('input')`
 export const SubmitButton = styled('button')`
     position: absolute;
     right: calc(10% + 25px);
+    border: 2px solid black;
+    background: white;
     width: 70px;
-    height: 35px;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 4px;
 `

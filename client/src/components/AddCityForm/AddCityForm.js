@@ -13,7 +13,9 @@ import {
     FormHeader,
     FormButton,
     ButtonWrapper,
-    InputWrapper
+    InputWrapper,
+    LoadingIcon,
+    ErrorText
 
 } from './AddCityForm.styling'
 
@@ -21,17 +23,22 @@ const AddCityForm = (props) =>{
     const [cityData, setCityData] = useState({city: ""});
     const [valid, setValid] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
-
+    console.log(props)
     useEffect(()=>{
-        checkValid(cityData,setValid,setErrorMessage)
-    },[cityData])
+        checkValid(cityData,setValid,setErrorMessage);
+        if(props.error){
+            setErrorMessage("Cannot find that city");
+        }else{
+            setErrorMessage(null);
+        }
+    },[cityData, props.error]);
 
     const submitHandler = (event) =>{
         cityData.maximum = Number(cityData.maximum);
         cityData.minimum = Number(cityData.minimum);
         event.preventDefault();
-        props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum])
-        setCityData({city: "", maximum: 0, minimum: 0})
+        props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum]);
+        setCityData({city: "", maximum: 0, minimum: 0});
     }
 
     return (
@@ -64,12 +71,19 @@ const AddCityForm = (props) =>{
                     value = {cityData.maximum} 
                     placeholder = "max degrees"  
                 />
-                <ButtonWrapper disabled = {valid}>
-                    <FormButton disabled  = {valid}>add city</FormButton>
-                </ButtonWrapper>
+                {
+                    props.fetchingWeather
+                    ?<LoadingIcon>
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                    </LoadingIcon>
+                    :<ButtonWrapper disabled = {valid}>
+                        <FormButton disabled  = {valid}>add city</FormButton>
+                    </ButtonWrapper>
+                }
+                
             </CityForm>
             {   errorMessage
-                ?   <p>{errorMessage}</p>
+                ?   <ErrorText>{errorMessage}</ErrorText>
                 :   null
             }
         </FormContainer>

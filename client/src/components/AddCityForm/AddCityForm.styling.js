@@ -78,3 +78,13 @@ export const InputWrapper = styled('div')`
     align-items: left;
     justify-content: center;
 `
+
+export const LoadingIcon = styled('i')`
+    margin-top: 20px;
+    font-size: 25px;
+`
+
+export const ErrorText = styled('p')`
+    color: red;
+    text-align: center;
+`

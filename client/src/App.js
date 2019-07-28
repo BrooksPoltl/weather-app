@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather, deleteCity, editRange } from './actions';
 
@@ -27,6 +27,8 @@ const mapStatetoProps = state =>{
     return {
       inRangeCities: state.weatherReducer.inRangeCities,
       notInRangeCities: state.weatherReducer.notInRangeCities,
+      fetchingWeather: state.weatherReducer.fetchingWeather,
+      error: state.weatherReducer.error
     }
 }
 

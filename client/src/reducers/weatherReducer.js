@@ -26,12 +26,16 @@ export const weatherReducer = (prevState = initialState, action) =>{
             if(action.payload.inRange){
                 return {
                     ...prevState,
+                    fetchingWeather: false,
+                    error: false,
                     fetchedWeather: true, 
                     inRangeCities: [...prevState.inRangeCities, action.payload]
                 }
             }else{
                 return {
                     ...prevState,
+                    fetchingWeather: false,
+                    error: false,
                     fetchedWeather: true, 
                     notInRangeCities: [...prevState.notInRangeCities, action.payload]
                 }
@@ -85,7 +89,7 @@ export const weatherReducer = (prevState = initialState, action) =>{
                     }
                 }
             }
-        case ERROR: return {...prevState, error: action.payload }
+        case ERROR: return {...prevState, fetchingWeather:false, error: action.payload }
         default: return prevState;
     }
 }
