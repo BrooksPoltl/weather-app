@@ -19,7 +19,7 @@
     "nodemon": "^1.19.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "knex migrate:rollback && knex migrate:latest && node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
