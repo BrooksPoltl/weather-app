@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const helper = require('../helpers/weatherHelper')
+const helper = require('../helpers/weatherHelper');
 
 router.get('/api/weather/:city', (req, response)=>{
     const city = req.params.city;

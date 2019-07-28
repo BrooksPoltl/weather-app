@@ -1,8 +1,8 @@
-const express = require('express')
-const knex = require('knex')
-const router = express.Router()
-const helper = require('../helpers/authHelper')
-const bcrypt = require('bcryptjs')
+const express = require('express');
+const knex = require('knex');
+const router = express.Router();
+const helper = require('../helpers/authHelper');
+const bcrypt = require('bcryptjs');
 
 router.post('/register', (req, res) => {
     let user = req.body;

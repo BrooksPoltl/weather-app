@@ -6,6 +6,9 @@ exports.up = function(knex) {
         tbl.foreign('user_id')
         .references('users.id')
         .onDelete('CASCADE')
+        tbl.string('city',255).notNullable().unique();
+        tbl.integer('minimum').unsigned();
+        tbl.integer('maximum').unsigned();
     })
     
 };
