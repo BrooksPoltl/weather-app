@@ -54,4 +54,13 @@ router.put('/citydata/:id', lock,(req,res)=>{
         res.status(500).json({message: "could not update post"});
     })
 })
+
+router.delete('/citydata/:id',lock, (req,res)=>{
+    helper.deleteCity(req.params.id).then(response=>{
+        res.status(200).json({message: "city has been deleted"});
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message: "could not delete city"});
+    })
+})
 module.exports = router;

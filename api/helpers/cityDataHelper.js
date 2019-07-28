@@ -12,5 +12,8 @@ module.exports ={
     },
     updateRange: function(id,range){
         return db('cityData').where({id}).update({minimum: range[0], maximum: range[1]})
+    },
+    deleteCity: function(id){
+        return db('cityData').where({id}).del()
     }
 }
