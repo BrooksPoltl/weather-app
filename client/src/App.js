@@ -1,25 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather, deleteCity, editRange } from './actions';
+import { login, register } from './actions/Auth';
+import { withRouter, Route, Switch } from 'react-router';
 
-import AddCityForm from './components/AddCityForm/AddCityForm';
-import CityData from './components/CityData/CityData';
-import Header from './components/Header/Header';
-
-import { 
-  AppContainer,
-  TopSectionContainer
-} from './App.styling';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 
 const App = (props) => {
   return (
-    <AppContainer>
-      <TopSectionContainer style = {{display: "flex", flexDirection: "row"}}>
-        <Header />
-        <AddCityForm {...props}/>
-      </TopSectionContainer>
-      <CityData {...props}/>
-    </AppContainer>
+      <div>
+          <Switch>
+              <Route exact path = '/dashboard' component = {()=> <DashboardPage {...props}/>}/>
+          </Switch>
+      </div>
   );
 }
 
@@ -32,4 +25,4 @@ const mapStatetoProps = state =>{
     }
 }
 
-export default connect(mapStatetoProps,{ fetchWeather,deleteCity, editRange })(App);
+export default withRouter(connect(mapStatetoProps,{ fetchWeather,deleteCity, editRange, login, register })(App));
