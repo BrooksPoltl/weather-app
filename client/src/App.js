@@ -15,7 +15,6 @@ const App = (props) => {
               <Route exact path = '/' component = {()=> <LandingPage {...props}/>}/>
               <Route exact path = '/login' component = {()=> <LoginPage {...props}/>}/>
               <Route exact path = '/dashboard' component = {()=> <DashboardPage {...props}/>}/>
-              
           </Switch>
       </div>
   );

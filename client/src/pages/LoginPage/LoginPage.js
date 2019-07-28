@@ -1,10 +1,11 @@
 import React from 'react';
+import { AppContainer } from '../DashboardPage/DashboardPage.styling';
 
 const LoginPage = () =>{
     return (
-        <div>
-            login page
-        </div>
+        <AppContainer>
+            loginPage
+        </AppContainer>
     )
 }
 

@@ -1,10 +1,16 @@
 import React from 'react';
 
-const LandingPage = () =>{
+import Header from '../../components/Header/Header';
+import SignupForm from '../../components/LandingPage/SignupForm';
+import { AppContainer } from '../DashboardPage/DashboardPage.styling';
+
+
+const LandingPage = (props) =>{
     return (
-        <div>
-            LandingPage
-        </div>
+        <AppContainer>
+            <Header/>
+            <SignupForm {...props}/>
+        </AppContainer>
     )
 }
 
