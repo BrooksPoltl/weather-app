@@ -23,7 +23,7 @@ router.post('/citydata',lock, (req,res)=>{
                 console.log(err)
                return  res.status(500).json({errorMessage: "could not get city data"})
         })
-   
+    });
 });
 
 router.get('/citydata',lock, async(req,res)=>{
