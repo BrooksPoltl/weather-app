@@ -10,7 +10,7 @@ localPbConnection = {
 const pg = require('pg');
 
 const prodDbConnection = process.env.DATABASE_URL || localPbConnection
-console.log(prodDbConnection)
+
 
 module.exports = {
 
@@ -38,7 +38,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: prodDbConnection,
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './migrations',
     },
