@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 const dbEngine = process.env.DB_ENV || 'development';
 const config = require('./knexfile.js')[dbEngine]
