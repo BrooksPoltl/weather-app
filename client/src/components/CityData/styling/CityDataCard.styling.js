@@ -13,6 +13,10 @@ export const TemperatureText = styled('p')`
     line-height: 36px;
     width: 15%;
     text-align: center;
+    color: ${props => props.color? props.color:"black"}
+    font-size: ${props => props.color? "20px":"16px"}
+    -webkit-text-stroke-width: ${props =>props.color && props.color !== "black"?"1.5px":"0px"};
+    -webkit-text-stroke-color: black;
 `
 export const RangeInput = styled('input')`
     width: 15%;
