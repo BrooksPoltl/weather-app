@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import changeHandler from '../../helpers/changeHandler'
+import React, { useState, useEffect } from 'react';
+import changeHandler from '../../helpers/changeHandler';
 import { checkValid } from './helper';
+
+import CityRangeInput from './CityRangeInput';
+
 import { 
+
     FormContainer, 
     CityForm,
     InputLabel,
-    RangeInputContainer,
-    RangeInput,
-    RangeSymbol,
     CityInput,
     FormHeader,
     FormButton,
     ButtonWrapper,
     InputWrapper
+
 } from './AddCityForm.styling'
 
 const AddCityForm = (props) =>{
@@ -31,6 +33,7 @@ const AddCityForm = (props) =>{
         props.fetchWeather(cityData.city, [cityData.minimum, cityData.maximum])
         setCityData({city: "", maximum: 0, minimum: 0})
     }
+
     return (
         <FormContainer>
             <FormHeader>Add a City</FormHeader>
@@ -45,32 +48,22 @@ const AddCityForm = (props) =>{
                         placeholder = "city"
                     />
                 </InputWrapper>
-                <InputWrapper>
-                    <InputLabel>min degrees °F</InputLabel>
-                    <RangeInputContainer>
-                        <RangeInput 
-                            type = "number" 
-                            onChange = {(event)=>  changeHandler(event,cityData,setCityData)}
-                            name = "minimum"
-                            value = {cityData.minimum}
-                            placeholder = "min degrees"
-                        />
-                        <RangeSymbol>°F</RangeSymbol>
-                    </RangeInputContainer>
-                </InputWrapper>
-                <InputWrapper>
-                    <InputLabel>max degrees °F</InputLabel>
-                    <RangeInputContainer>
-                        <RangeInput 
-                            type = "number" 
-                            onChange = {(event)=>   changeHandler(event,cityData,setCityData)}
-                            name = "maximum"
-                            value = {cityData.maximum}
-                            placeholder = "max degrees"
-                        />
-                        <RangeSymbol>°F</RangeSymbol>
-                    </RangeInputContainer>
-                </InputWrapper>
+                <CityRangeInput 
+                    labelText = "min degrees °F" 
+                    cityData = {cityData}
+                    name = "minimum" 
+                    setCityData= {setCityData} 
+                    value = {cityData.minimum} 
+                    placeholder = "min degrees"  
+                />
+                <CityRangeInput 
+                    labelText = "max degrees °F" 
+                    cityData = {cityData}
+                    name = "maximum" 
+                    setCityData= {setCityData} 
+                    value = {cityData.maximum} 
+                    placeholder = "max degrees"  
+                />
                 <ButtonWrapper disabled = {valid}>
                     <FormButton disabled  = {valid}>add city</FormButton>
                 </ButtonWrapper>

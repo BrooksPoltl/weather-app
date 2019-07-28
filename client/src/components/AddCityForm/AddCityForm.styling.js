@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const FormContainer = styled('div')`
-    border: 3px solid Blue;
+    border: 3px solid black;
     border-radius: 8px;
     background: white;
     padding: 20px;
@@ -33,7 +33,7 @@ export const RangeInputContainer = styled('div')`
 `
 export const RangeInput = styled('input')`
     width: 100%;
-    border: 2px solid blue;
+    border: 2px solid black;
     border-radius: 2px;
     height: 18px;
     margin-right: 3px;
@@ -45,7 +45,7 @@ export const RangeSymbol = styled('div')`
 export const CityInput = styled('input')`
     width: calc(100% - 28px);
     height: 18px;
-    border: 2px solid blue;
+    border: 2px solid black;
     border-radius: 2px;
     padding: 3px;
 `

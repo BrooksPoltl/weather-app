@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const HeaderContainer = styled('div')`
-    border: 3px solid blue;
+    border: 3px solid black;
     border-radius: 8px;
     background: white;
     display: flex;

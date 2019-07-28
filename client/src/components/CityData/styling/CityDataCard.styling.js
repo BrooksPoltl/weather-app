@@ -18,6 +18,11 @@ export const TemperatureText = styled('p')`
     -webkit-text-stroke-width: ${props =>props.color && props.color !== "black"?"1.5px":"0px"};
     -webkit-text-stroke-color: black;
 `
+export const CityText = styled('p')`
+    fontWeight: bold; 
+    width: 15%;
+    lineHeight: 36px;
+`
 export const RangeInput = styled('input')`
     width: 15%;
     text-align: center;
