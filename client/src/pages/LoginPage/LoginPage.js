@@ -1,10 +1,14 @@
 import React from 'react';
 import { AppContainer } from '../DashboardPage/DashboardPage.styling';
 
-const LoginPage = () =>{
+import LoginForm from '../../components/LoginPage/LoginForm';
+import LoginOptions from '../../components/LoginPage/LoginOptions';
+
+const LoginPage = (props) =>{
     return (
         <AppContainer>
-            loginPage
+            <LoginForm {...props}/>
+            <LoginOptions {...props}/>
         </AppContainer>
     )
 }

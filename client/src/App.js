@@ -28,7 +28,10 @@ const mapStatetoProps = state =>{
       error: state.weatherReducer.error,
       registerError: state.authReducer.registerError,
       registering: state.authReducer.registering,
-      registered: state.authReducer.registered
+      registered: state.authReducer.registered,
+      loggingIn: state.authReducer.loggingIn,
+      loggedIn: state.authReducer.loggedIn,
+      loginError: state.authReducer.loginError
     }
 }
 

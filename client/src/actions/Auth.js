@@ -35,7 +35,7 @@ export const login = (body) =>{
     return dispatch =>{
         dispatch({type: LOGGING_IN})
         axios.post(`${BASE_URL}/api/login`, body).then(res=>{
-            console.log(res)
+            localStorage.setItem('token', res.data.token);
             dispatch({type: LOGGED_IN, payload: res});
         }).catch(err=>{
             console.log(err);
