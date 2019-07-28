@@ -1,5 +1,9 @@
 import React,{ useState } from 'react';
 import CityDataCard from './CityDataCard';
+import {
+    LabelContainer,
+    LabelHeader
+} from './styling/CityData.styling'
 
 const CityData = (props) =>{
     const [editing, setEditing ] = useState(false); 
@@ -19,12 +23,13 @@ const CityData = (props) =>{
     }
     return (
         <div>
-            <div style = {{display: "flex"}}>
+            <LabelHeader>Your cities:</LabelHeader>
+            <LabelContainer>
                 <p>city:</p>
                 <p>temperature:</p>
                 <p>min degrees:</p>
                 <p>max degrees:</p>
-            </div>
+            </LabelContainer>
             <div>
                 {props.inRangeCities.map((city, index) =>{
                         return <CityDataCard 

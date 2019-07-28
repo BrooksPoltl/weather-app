@@ -12,12 +12,14 @@ const CityDataCardForm = (props)=>{
                     type = "number" 
                     value = {props.newRange.minimum} 
                     name = "minimum" 
+                    placeholder = "minimum"
                     onChange = {(event)=>changeHandler(event,props.newRange, props.setNewRange)}
                 />
                 <input 
                     type = "number" 
                     value = {props.newRange.maximum} 
                     name = "maximum" 
+                    placeholder = "maximum"
                     onChange = {(event)=>changeHandler(event,props.newRange, props.setNewRange)}
                 />
                 <button onClick = {(event)=>handleSubmit(event)}>submit</button>

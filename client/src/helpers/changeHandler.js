@@ -2,7 +2,10 @@
 
 const changeHandler = (event,data, setter) =>{
 
-    const value = event.target.value;
+    let value = event.target.value;
+    if(Number(value)){
+        value = Number(value);
+    }
     setter({...data, [event.target.name]: value})
 }
 

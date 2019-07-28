@@ -4,13 +4,22 @@ import { fetchWeather, deleteCity, editRange } from './actions';
 
 import AddCityForm from './components/AddCityForm/AddCityForm';
 import CityData from './components/CityData/CityData';
+import Header from './components/Header/Header';
+
+import { 
+  AppContainer,
+  TopSectionContainer
+} from './App.styling';
 
 const App = (props) => {
   return (
-    <div >
+    <AppContainer>
+      <TopSectionContainer style = {{display: "flex", flexDirection: "row"}}>
+        <Header />
         <AddCityForm {...props}/>
-        <CityData {...props}/>
-    </div>
+      </TopSectionContainer>
+      <CityData {...props}/>
+    </AppContainer>
   );
 }
 
