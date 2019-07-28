@@ -15,7 +15,10 @@ router.post('/citydata',lock, (req,res)=>{
             .then(test => {
                 helper.addCity(cityData).then (result => {
                     res.status (201).json (result);
-                    }).catch (err => res.status (500).json ({errorMessage:'error adding city'}));
+                    }).catch (err => {
+                        console.log(err)
+                        res.status (500).json ({errorMessage:'error adding city'}));
+                    }
             })
             .catch(err => {
                 console.log(err)
