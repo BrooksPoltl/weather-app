@@ -1,14 +1,16 @@
 
 // Update with your config settings.
+require('dotenv').config()
 localPbConnection = {
   host: 'localhost',
   database: 'Database',
   user: process.env.DB_USERS,
   password: process.env.DB_PASS
 }
+const pg = require('pg');
 
 const prodDbConnection = process.env.DATABASE_URL || localPbConnection
-
+console.Log(prodDbConnection)
 
 module.exports = {
 
