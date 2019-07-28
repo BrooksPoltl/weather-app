@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
 
     helper.registerUser(user)
         .then (result => {
-        res.status (201).json (message: "user created");
+        res.status (201).json ({message: "user created"});
         })
         .catch (err =>{ 
           console.log(err)
