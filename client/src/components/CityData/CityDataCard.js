@@ -29,9 +29,9 @@ const CityDataCard = (props) =>{
         event.preventDefault();
         newRange.minimum = Number(newRange.minimum);
         newRange.maximum = Number(newRange.maximum);
-        if(props.id){
+        const token = localStorage.getItem('token');
+        if(token){
             props.changeRange(id, {range:[newRange.minimum, newRange.maximum]})
-            props.history.push("/dashboard")
         }else{
             if(inRange){
                 await props.editRange(props.inRangeCities,index,inRange, newRange.minimum, newRange.maximum)
@@ -47,7 +47,6 @@ const CityDataCard = (props) =>{
     const handleDelete = () =>{
         if(props.id){
             props.authDeleteCity(props.id);
-            props.history.push("/dashboard")
         }
         else{
             props.deleteCity(props.halfCities,props.city.index,props.city.inRange);

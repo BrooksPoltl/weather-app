@@ -36,7 +36,10 @@ const mapStatetoProps = state =>{
       loginError: state.authReducer.loginError,
       addingCity: state.loggedInReducer.addingCity,
       addedCity: state.loggedInReducer.addedCity,
-      changedRange: state.loggedInReducer.changeRange
+      changingRange: state.loggedInReducer.changingRange,
+      changedRange: state.loggedInReducer.changeRange,
+      deletingCity: state.loggedInReducer.deletingCity,
+      deletedCity: state.loggedInReducer.deletedCity
     }
 }
 
