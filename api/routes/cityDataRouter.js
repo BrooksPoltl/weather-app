@@ -38,7 +38,7 @@ router.get('/citydata',lock, async(req,res)=>{
             if(temp>= getCities[i]["minimum"]&& temp<= getCities[i]["maximum"]){
                 inRangeCities.push({city: getCities[i]["city"],id: getCities[i]["id"],range: [getCities[i]["minimum"], getCities[i]["maximum"]], temperature: temp, inRange:true})
             }else{
-                notInRangeCities.push({id: getCities[i]["id"],range: [getCities[i]["minimum"], getCities[i]["maximum"]], temp, inRange:false})
+                notInRangeCities.push({city: getCities[i]["city"], id: getCities[i]["id"],range: [getCities[i]["minimum"], getCities[i]["maximum"]], temperature: temp, inRange:false})
             }
         }).catch(err=>{
             console.log(err)

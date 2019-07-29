@@ -4,9 +4,7 @@ import DataLabel from './DataLabel';
 
 import {
 
-    LabelContainer,
     LabelHeader,
-    DescriptiveText,
     CitiesLabels
 
 } from './styling/CityData.styling'
