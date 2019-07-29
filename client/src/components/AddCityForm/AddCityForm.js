@@ -82,7 +82,7 @@ const AddCityForm = (props) =>{
                     ?<LoadingIcon>
                         <i class="fas fa-circle-notch fa-spin"></i>
                     </LoadingIcon>
-                    :<FormButton onSubmit = {(event)=>submitHandler(event)} disabled  = {valid}>add city</FormButton>
+                    :<FormButton onSubmit = {(event)=>submitHandler(event)} disabled  = {valid} type ="submit">add city</FormButton>
                 }
                 
             </CityForm>
