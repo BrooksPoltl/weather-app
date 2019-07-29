@@ -1,16 +1,17 @@
 import React from 'react';
 
+import {  OptionButton } from './styles/SignupForm.styling';
 
 const LandingOptions = (props) =>{
     return(
         <div>
-            <div>
+            <div style = {{ display: "flex"}}>
                 <p>Already have an account? </p>
-                <button onClick = {()=> props.history.push('/login')}>login</button>
+                <OptionButton onClick = {()=> props.history.push('/login')}>login</OptionButton>
             </div>
-            <div>
+            <div style = {{display: "flex"}}>
                 <p>Don't want to login?</p>
-                <button onClick = {()=> props.history.push('/dashboard')}>continue</button>
+                <OptionButton onClick = {()=> props.history.push('/dashboard')}>continue</OptionButton>
             </div>
         </div>
     )

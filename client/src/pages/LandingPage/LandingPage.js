@@ -1,30 +1,19 @@
 import React from 'react';
 
-import Header from '../../components/Header/Header';
 import SignupForm from '../../components/LandingPage/SignupForm';
 import Registered from '../../components/LandingPage/Registered';
-import LandingOptions from '../../components/LandingPage/LandingOptions';
+import Information from '../../components/LandingPage/Information'
 
-import { AppContainer } from '../DashboardPage/DashboardPage.styling';
+import { LandingPageContainer } from './LandingPage.styling';
 
 
 const LandingPage = (props) =>{
+    
     return (
-        <AppContainer>
-            <Header/>
-            {
-                props.registered
-                ?<Registered {...props}/>
-                :<SignupForm {...props}/>
-            }
-            {
-                props.registered
-                ? null
-                : <LandingOptions {...props}/>
-                
-            }
-            
-        </AppContainer>
+        <LandingPageContainer>
+            <Information/>
+            <SignupForm {...props}/>
+        </LandingPageContainer>
     )
 }
 

@@ -1,62 +1,101 @@
 import React,  { useState, useEffect } from 'react';
 
-import changeHandler from '../../helpers/changeHandler';
+import SignupInput from './SignupInput';
+import LandingOptions from './LandingOptions';
+import Registered from '../../components/LandingPage/Registered';
+
+
 import { LoadingIcon }  from '../AddCityForm/AddCityForm.styling';
+import {HeaderContainer} from '../Header/Header.styling';
+
+import {
+    
+    SignupFormStyle,
+    FormHeader,
+    SignupFormButton,
+    Error
+
+} from './styles/SignupForm.styling';
+
+import { checkValid } from './helper';
+
 
 const SignupForm = (props) =>{
     const [user, setUser] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
+    const [disabled, setDisabled] = useState(true);
     useEffect(()=>{
+        checkValid(user,setDisabled,setErrorMessage)
         if(props.registerError){
             setErrorMessage("could not register, please try a different username");
         }
     })
+
     const handleSubmit = (event) =>{
         event.preventDefault();
 
         if(user.password !== user.confirmPassword){
             return setErrorMessage("passwords do not match");
         }
+
         user.password = user.password.toString();
         user.username = user.username.toString();
         props.register({ username: user.username, password: user.password})
     }
+
     return(
-        <div>
-            <h1>Signup Form</h1>
-            <form>
-                <label>username</label>
-                <input 
+        <HeaderContainer>
+            <FormHeader>Signup</FormHeader>
+            <SignupFormStyle>
+                <SignupInput
                     type = "text"
                     name = "username"
-                    onChange = {(event) =>changeHandler(event, user, setUser)}
+                    user = {user}
+                    setUser = {setUser}
+                    labelText = "username"
+                    placeholder = "username"
                 />
-                <label>password</label>
-                <input 
+                <SignupInput
                     type = "password"
                     name = "password"
-                    onChange = {(event) =>changeHandler(event, user, setUser)}
+                    user = {user}
+                    setUser = {setUser}
+                    labelText = "password"
+                    placeholder = "password"
                 />
-                <label>confirm password</label>
-                <input 
+                <SignupInput
                     type = "password"
                     name = "confirmPassword"
-                    onChange = {(event) =>changeHandler(event, user, setUser)}
+                    user = {user}
+                    setUser = {setUser}
+                    labelText = "confirm password"
+                    placeholder = "confirm password"
                 />
                 {
                     props.registering
                     ?   <LoadingIcon>
                             <i className="fas fa-circle-notch fa-spin"></i>
                         </LoadingIcon>
-                    :   <button onClick = {(event)=>handleSubmit(event)}>submit</button>
+                    :   <SignupFormButton 
+                            disabled = {disabled}
+                            onClick = {(event)=>handleSubmit(event)}
+                        >submit
+                        </SignupFormButton>
                 }
                 {
                     errorMessage
-                    ?<p>{errorMessage}</p>
+                    ?<Error>{errorMessage}</Error>
                     :null
                 }
-            </form>
-        </div>
+                {
+                    props.registered
+                    ? <Registered {...props}/>
+                    : <LandingOptions {...props}/>
+                
+                }
+                
+            </SignupFormStyle>
+        </HeaderContainer>
     )
 }
 
