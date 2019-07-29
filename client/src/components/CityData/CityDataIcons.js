@@ -6,9 +6,10 @@ import {
 } from './styling/CityDataIcons.styling'
 
 const CityDataIcons = (props) =>{
+    console.log(props)
     return(
         <IconWrapper>
-            <div onClick ={()=>props.deleteCity(props.cities,props.city.index,props.city.inRange)}>
+            <div onClick ={()=>props.deleteCity(props.halfCities,props.city.index,props.city.inRange)}>
                 <i className ="fas fa-trash-alt">
                 </i> 
             </div>

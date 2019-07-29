@@ -13,9 +13,6 @@ const CityData = (props) =>{
     const [editing, setEditing ] = useState(false); 
     const [newRange, setNewRange] = useState({minimum: 0,maximum: 0})
     
-    
-    
- console.log(props.cities)
     const handleEdit = async(event,index,inRange) =>{
         event.preventDefault();
         newRange.minimum = Number(newRange.minimum);
@@ -26,8 +23,10 @@ const CityData = (props) =>{
         else{
             await props.editRange(props.notInRangeCities,index,inRange, newRange.minimum, newRange.maximum)
         }
-        setEditing(false)
+        setEditing(false);
     }
+    console.log(props)
+    const token = localStorage.getItem('token');
     return (
         <div>
             <LabelHeader>Your cities:</LabelHeader>
@@ -37,7 +36,7 @@ const CityData = (props) =>{
                 <DataLabel/>
                 {props.cities.inRangeCities.map((city, index) =>{
                         return <CityDataCard 
-                                cities = {props.cities.inRangeCities}
+                                halfCities = {props.inRangeCities}
                                 editing = {editing}
                                 setEditing = {setEditing}
                                 newRange = {newRange}
@@ -54,7 +53,7 @@ const CityData = (props) =>{
                 {
                 props.cities.notInRangeCities.map((city, index) =>{
                         return <CityDataCard 
-                                cities = {props.cities.notInRangeCities}
+                                halfCities = {props.notInRangeCities}
                                 editing = {editing}
                                 setEditing = {setEditing}
                                 newRange = {newRange}

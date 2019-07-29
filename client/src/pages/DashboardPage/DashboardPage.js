@@ -5,8 +5,10 @@ import Header from '../../components/Header/Header';
 import axios from 'axios';
 
 import { 
+    
   AppContainer,
   TopSectionContainer
+
 } from './DashboardPage.styling';
 
 const DashboardPage = (props) =>{
@@ -27,9 +29,12 @@ const DashboardPage = (props) =>{
                 console.log(err)
             })
         }
-    },[])
+        else{
+            setCity({inRangeCities: props.inRangeCities, notInRangeCities: props.notInRangeCities})
+        }
+    },[]);
     
-  console.log(city)
+ 
     return (
         <AppContainer>
             <TopSectionContainer>
