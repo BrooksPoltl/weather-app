@@ -37,7 +37,7 @@ const DashboardPage = (props) =>{
     return (
         <AppContainer>
             <TopSectionContainer>
-                <Header />
+                <Header {...props}/>
                 <AddCityForm {...props}/>
             </TopSectionContainer>
             <CityData cities = {city} {...props}/>

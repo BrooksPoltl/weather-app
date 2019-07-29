@@ -1,10 +1,12 @@
 import React,  { useState, useEffect } from 'react';
 
-import { LoadingIcon }  from '../AddCityForm/AddCityForm.styling';
 import LoginOptions from './LoginOptions';
+import SignupInput from '../LandingPage/SignupInput';
+
+import { LoadingIcon }  from '../AddCityForm/AddCityForm.styling';
+
 import {HeaderContainer} from '../Header/Header.styling';
 
-import SignupInput from '../LandingPage/SignupInput';
 
 import { checkValid } from "./helper";
 import {
@@ -68,7 +70,7 @@ const SignupForm = (props) =>{
                 }
                 {
                     errorMessage
-                    ?<p>{errorMessage}</p>
+                    ?<Error>{errorMessage}</Error>
                     :null
                 }
                 <LoginOptions {...props}/>
