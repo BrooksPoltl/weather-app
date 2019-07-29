@@ -1,12 +1,13 @@
 import React from 'react';
 
+import { RegisteredContainer, RegisteredButton } from './styles/Registered.style';
 
 const Registered = (props) =>{
     return (
-        <div style = {{background: "white"}}>
-            <p>Thank you for registering, click here to login</p>
-            <button onClick = {()=>props.history.push("/login")}>Login</button>
-        </div>
+        <RegisteredContainer>
+            <p>Thank you for registering, click here to</p>
+            <RegisteredButton onClick = {()=>props.history.push("/login")}>Login</RegisteredButton>
+        </RegisteredContainer>
     )
 }
 
