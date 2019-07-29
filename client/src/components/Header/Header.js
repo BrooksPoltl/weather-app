@@ -12,6 +12,10 @@ import { OptionButton } from '../LandingPage/styles/SignupForm.styling';
 
 const Header = (props) =>{
     const token = localStorage.getItem('token')
+    const logout = () =>{
+        localStorage.removeItem('token')
+        props.history.push("dashboard")
+    }
     return (
         <HeaderContainer>
             <AppName>Weather Tracker</AppName>
@@ -26,7 +30,10 @@ const Header = (props) =>{
             </Description>
             {
                 token
-                ?null
+                ?<div style = {{display: "flex"}}>
+                    <p>Want to logout?</p>
+                    <OptionButton onClick = {()=> logout()}>logout</OptionButton>
+                </div>
                 :<div style = {{display: "flex"}}>
                     <p>Want to save your entries?</p>
                     <OptionButton onClick = {()=>props.history.push("/")}>signup</OptionButton>
