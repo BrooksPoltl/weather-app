@@ -33,8 +33,7 @@ const AddCityForm = (props) =>{
         }
     },[cityData, props.error]);
 
-    const submitHandler = (event) =>{
-        event.preventDefault();
+    const submitHandler = () =>{
         cityData.maximum = Number(cityData.maximum);
         cityData.minimum = Number(cityData.minimum);
         const token = localStorage.getItem('token');
@@ -50,7 +49,7 @@ const AddCityForm = (props) =>{
     return (
         <FormContainer>
             <FormHeader>Add a City</FormHeader>
-            <CityForm onSubmit = {(event)=>submitHandler(event)} autoComplete = "off">
+            <CityForm onSubmit = {submitHandler} autoComplete = "off">
                 <InputWrapper>
                     <InputLabel>city</InputLabel>
                     <CityInput 
@@ -82,7 +81,7 @@ const AddCityForm = (props) =>{
                     ?<LoadingIcon>
                         <i class="fas fa-circle-notch fa-spin"></i>
                     </LoadingIcon>
-                    :<FormButton onSubmit = {(event)=>submitHandler(event)} disabled  = {valid} type ="submit">add city</FormButton>
+                    :<FormButton disabled  = {valid} type ="submit">add city</FormButton>
                 }
                 
             </CityForm>
