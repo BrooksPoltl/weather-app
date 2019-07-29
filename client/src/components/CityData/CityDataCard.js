@@ -12,17 +12,54 @@ import {
     RangeInput,
     CityText
 
-} from './styling/CityDataCard.styling'
+} from './styling/CityDataCard.styling';
+
 
 const CityDataCard = (props) =>{
     const [color, setColor] = useState("black");
+    const [editing, setEditing ] = useState(false); 
+    const [newRange, setNewRange] = useState({minimum: 0,maximum: 0})
     useEffect(()=>{
         
         handleColor(props, setColor);
     }, [props])
     
+        
+    const handleEdit = async(event,index,inRange,id = null) =>{
+        event.preventDefault();
+        newRange.minimum = Number(newRange.minimum);
+        newRange.maximum = Number(newRange.maximum);
+        if(props.id){
+            props.changeRange(id, {range:[newRange.minimum, newRange.maximum]})
+            props.history.push("/dashboard")
+        }else{
+            if(inRange){
+                await props.editRange(props.inRangeCities,index,inRange, newRange.minimum, newRange.maximum)
+                
+            }
+            else{
+                await props.editRange(props.notInRangeCities,index,inRange, newRange.minimum, newRange.maximum)
+            }
+        }
+        setEditing(false);
+        
+    }
+    const handleDelete = () =>{
+        if(props.id){
+            props.authDeleteCity(props.id);
+            props.history.push("/dashboard")
+        }
+        else{
+            props.deleteCity(props.halfCities,props.city.index,props.city.inRange);
+        }
+        
+    }
+    
     const handleSubmit=(event)=>{
-        props.handleEdit(event, props.index,props.city.inRange)
+        if(props.id){
+            handleEdit(event, props.index,props.city.inRange,props.id);
+        }
+        handleEdit(event, props.index,props.city.inRange);
 
     }
     return(
@@ -30,29 +67,29 @@ const CityDataCard = (props) =>{
             <CityText>{props.city.city}</CityText>
             <TemperatureText color = {color}>{props.city.temperature}°F</TemperatureText>
             {
-                !props.editing
+                !editing
                     ? <TemperatureText>{props.city.range[0]}°F</TemperatureText>
                     :<RangeInput
                         type = "number" 
-                        value = {props.newRange.minimum} 
+                        value = {newRange.minimum} 
                         name = "minimum" 
                         placeholder = "minimum"
-                        onChange = {(event)=>changeHandler(event,props.newRange, props.setNewRange)}
+                        onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
                     />
             }
             {
-                !props.editing
+                !editing
                     ? <TemperatureText>{props.city.range[1]}°F</TemperatureText>
                     :<RangeInput
                         type = "number" 
-                        value = {props.newRange.maximum} 
+                        value = {newRange.maximum} 
                         name = "maximum" 
                         placeholder = "maximum"
-                        onChange = {(event)=>changeHandler(event,props.newRange, props.setNewRange)}
+                        onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
                     />
             }
             {
-                !props.editing
+                !editing
                     ? null
                     :<SubmitButton
                         onClick = {(event)=>handleSubmit(event)}
@@ -61,7 +98,7 @@ const CityDataCard = (props) =>{
                     </SubmitButton>
 
             }
-            <CityDataIcons {...props}/>
+            <CityDataIcons handleDelete = {handleDelete} editing = {editing} setEditing = {setEditing} {...props}/>
            
         </CardContainer>
     )

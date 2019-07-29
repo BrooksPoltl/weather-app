@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import { DELETED_CITY_DATA } from '.';
 
 export const ADDED_CITY = 'ADDED_CITY';
 export const ADDING_CITY = 'ADDING_CITY';
@@ -69,9 +70,37 @@ export const getCities = () =>{
     }
 }
 
-export const changeRange = () =>{
+export const changeRange = (id, range) =>{
+    return dispatch =>{
+        dispatch({type: CHANGING_RANGE})
+        const token = localStorage.getItem('token');
+        const request = {
+            headers: {
+                authorization: token,
+            },
+        }
+        axios.put(`${BASE_URL}/api/citydata/${id}`,range, request).then(res=>{
+            dispatch({type: CHANGED_RANGE})
 
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 }
-export const authDeleteCity = () =>{
-    
+export const authDeleteCity = (id) =>{
+    return dispatch =>{
+        dispatch({type: DELETING_CITY})
+        const token = localStorage.getItem('token');
+        const request = {
+            headers: {
+                authorization: token,
+            },
+        }
+        axios.delete(`${BASE_URL}/api/citydata/${id}`, request).then(res=>{
+            dispatch({type: DELETED_CITY})
+
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 }
