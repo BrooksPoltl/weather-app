@@ -14,7 +14,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 import App from './App';
 
-const middleware = applyMiddleware(logger, thunk);
+const middleware = applyMiddleware( thunk);
 
 const store = createStore(
     rootReducer,
