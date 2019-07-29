@@ -2,7 +2,7 @@
 ### trello board
 https://trello.com/b/625C4IAO/weather-app
 ### deployment URL
- Placeholder
+https://sad-payne-a7b2e9.netlify.com/
 ### Wireframe
 https://balsamiq.cloud/stofa4k/p531wha
 
