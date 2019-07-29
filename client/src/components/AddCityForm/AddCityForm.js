@@ -82,9 +82,7 @@ const AddCityForm = (props) =>{
                     ?<LoadingIcon>
                         <i class="fas fa-circle-notch fa-spin"></i>
                     </LoadingIcon>
-                    :<ButtonWrapper disabled = {valid}>
-                        <FormButton disabled  = {valid}>add city</FormButton>
-                    </ButtonWrapper>
+                    :<FormButton disabled  = {valid}>add city</FormButton>
                 }
                 
             </CityForm>
