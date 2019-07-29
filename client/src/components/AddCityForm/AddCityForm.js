@@ -50,7 +50,7 @@ const AddCityForm = (props) =>{
     return (
         <FormContainer>
             <FormHeader>Add a City</FormHeader>
-            <CityForm onSubmit = {submitHandler} autoComplete = "off">
+            <CityForm onSubmit = {(event)=>submitHandler(event)} autoComplete = "off">
                 <InputWrapper>
                     <InputLabel>city</InputLabel>
                     <CityInput 
