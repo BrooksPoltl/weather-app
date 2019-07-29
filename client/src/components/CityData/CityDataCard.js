@@ -54,14 +54,7 @@ const CityDataCard = (props) =>{
         }
         
     }
-    
-    const handleSubmit=(event)=>{
-        if(props.id){
-            handleEdit(event, props.index,props.city.inRange,props.id);
-        }
-        handleEdit(event, props.index,props.city.inRange);
 
-    }
     return(
         <CardContainer>
             <CityText>{props.city.city}</CityText>
@@ -92,7 +85,7 @@ const CityDataCard = (props) =>{
                 !editing
                     ? null
                     :<SubmitButton
-                        onClick = {(event)=>handleSubmit(event)}
+                        onClick = {(event)=>handleEdit(event, props.index,props.city.inRange,props.id)}
                      >
                             submit
                     </SubmitButton>

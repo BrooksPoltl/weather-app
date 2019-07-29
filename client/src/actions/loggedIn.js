@@ -43,10 +43,8 @@ export const addCity = (body) =>{
             },
         }
         axios.post(`${BASE_URL}/api/citydata`,body,request).then(res=>{
-            console.log(res);
             dispatch({type: ADDED_CITY, payload: res})
         }).catch(err=>{
-            console.log(err)
         })
 
     }
@@ -65,7 +63,6 @@ export const getCities = () =>{
             dispatch({type: GOT_CITIES})
             return res.data
         }).catch(err=>{
-            console.log(err)
         })
     }
 }
@@ -83,7 +80,6 @@ export const changeRange = (id, range) =>{
             dispatch({type: CHANGED_RANGE})
 
         }).catch(err=>{
-            console.log(err)
         })
     }
 }
@@ -100,7 +96,6 @@ export const authDeleteCity = (id) =>{
             dispatch({type: DELETED_CITY})
 
         }).catch(err=>{
-            console.log(err)
         })
     }
 }

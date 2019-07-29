@@ -26,7 +26,6 @@ const DashboardPage = (props) =>{
             axios.get(`${BASE_URL}/api/citydata`, request).then(res=>{
                 setCity(res.data)
             }).catch(err=>{
-                console.log(err)
             })
         }
         else{

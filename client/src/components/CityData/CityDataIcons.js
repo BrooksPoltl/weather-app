@@ -6,7 +6,7 @@ import {
 } from './styling/CityDataIcons.styling'
 
 const CityDataIcons = (props) =>{
-    console.log(props)
+
     return(
         <IconWrapper>
             <div onClick ={()=> props.handleDelete()}>

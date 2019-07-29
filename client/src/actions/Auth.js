@@ -18,11 +18,8 @@ export const register = (body) =>{
     return dispatch =>{
         dispatch({type: REGISTERING})
         axios.post(`${BASE_URL}/api/register`, body).then(res=>{
-            console.log(res);
             dispatch({type: REGISTERED, payload: res});
         }).catch(err=>{
-            console.log(err);
-            console.log(body)
             dispatch({type: REGISTER_ERROR, payload: err});
         })
 
@@ -38,7 +35,6 @@ export const login = (body) =>{
             localStorage.setItem('token', res.data.token);
             dispatch({type: LOGGED_IN, payload: res});
         }).catch(err=>{
-            console.log(err);
             dispatch({type: LOGIN_ERROR, payload: err});
         })
     }   
