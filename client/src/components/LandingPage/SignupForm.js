@@ -88,7 +88,7 @@ const SignupForm = (props) =>{
                     :null
                 }
                 {
-                    true//props.registered
+                    props.registered
                     ? <Registered {...props}/>
                     : <LandingOptions {...props}/>
                 
