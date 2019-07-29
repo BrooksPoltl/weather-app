@@ -29,12 +29,7 @@ export const DELETED_CITY = 'DELETED_CITY';
 
 const BASE_URL = "https://weather-project-api.herokuapp.com";
 
-const token = localStorage.getItem('token');
-const request = {
-    headers: {
-        authorization: token,
-    },
-}
+
 
 export const addCity = (body) =>{
     return dispatch=>{
@@ -66,8 +61,8 @@ export const getCities = () =>{
             },
         }
         axios.get(`${BASE_URL}/api/citydata`, request).then(res=>{
-            console.log(res);
-            dispatch({type: GOT_CITIES, payload: res})
+            dispatch({type: GOT_CITIES})
+            return res.data
         }).catch(err=>{
             console.log(err)
         })

@@ -12,8 +12,6 @@ const initialState = {
     addedCity: false,
     gettingCities: false,
     gotCities: false,
-    inRangeCities:[],
-    notInRangeCities: [],
 }
 
 export const loggedInReducer = (prevState = initialState, action) =>{

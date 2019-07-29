@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather, deleteCity, editRange } from './actions';
 import { login, register } from './actions/Auth';
-import { addCity } from './actions/loggedIn';
+import { addCity, getCities } from './actions/loggedIn';
 
 import { withRouter, Route, Switch } from 'react-router';
 
@@ -35,8 +35,9 @@ const mapStatetoProps = state =>{
       loggedIn: state.authReducer.loggedIn,
       loginError: state.authReducer.loginError,
       addingCity: state.loggedInReducer.addingCity,
-      addedCity: state.loggedInReducer.addedCity
+      addedCity: state.loggedInReducer.addedCity,
+      // cities: state.loggedInReducer.cities,
     }
 }
 
-export default withRouter(connect(mapStatetoProps,{ fetchWeather,deleteCity, editRange, login, register,addCity })(App));
+export default withRouter(connect(mapStatetoProps,{ fetchWeather,deleteCity, editRange, login, register,addCity, getCities })(App));

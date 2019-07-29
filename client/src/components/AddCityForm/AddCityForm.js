@@ -26,7 +26,6 @@ const AddCityForm = (props) =>{
     
     useEffect(()=>{
         checkValid(cityData,setValid,setErrorMessage);
-        const token = localStorage.getItem('token');
         if(props.error){
             setErrorMessage("Cannot find that city");
         }else{

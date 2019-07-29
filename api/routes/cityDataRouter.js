@@ -36,7 +36,7 @@ router.get('/citydata',lock, async(req,res)=>{
             let temp = res.data.main.temp;
             temp = weatherHelper.convertToFahrenheit(temp)
             if(temp>= getCities[i]["minimum"]&& temp<= getCities[i]["maximum"]){
-                inRangeCities.push({id: getCities[i]["id"],range: [getCities[i]["minimum"], getCities[i]["maximum"]], temp, inRange:true})
+                inRangeCities.push({city: getCities[i]["city"],id: getCities[i]["id"],range: [getCities[i]["minimum"], getCities[i]["maximum"]], temperature: temp, inRange:true})
             }else{
                 notInRangeCities.push({id: getCities[i]["id"],range: [getCities[i]["minimum"], getCities[i]["maximum"]], temp, inRange:false})
             }
