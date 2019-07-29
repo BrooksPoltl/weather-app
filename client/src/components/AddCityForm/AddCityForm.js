@@ -33,8 +33,7 @@ const AddCityForm = (props) =>{
         }
     },[cityData, props.error]);
 
-    const submitHandler = (event) =>{
-        event.preventDefault();
+    const submitHandler = () =>{
         cityData.maximum = Number(cityData.maximum);
         cityData.minimum = Number(cityData.minimum);
         const token = localStorage.getItem('token');
@@ -83,7 +82,7 @@ const AddCityForm = (props) =>{
                         <i class="fas fa-circle-notch fa-spin"></i>
                     </LoadingIcon>
                     :<ButtonWrapper disabled = {valid}>
-                        <FormButton disabled  = {valid}>add city</FormButton>
+                        <FormButton disabled  = {valid} type = "submit">add city</FormButton>
                     </ButtonWrapper>
                 }
                 
