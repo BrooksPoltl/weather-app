@@ -14,7 +14,8 @@ const Header = (props) =>{
     const token = localStorage.getItem('token')
     const logout = () =>{
         localStorage.removeItem('token')
-        props.history.push("dashboard")
+        props.history.push("/dashboard")
+        
     }
     return (
         <HeaderContainer>
