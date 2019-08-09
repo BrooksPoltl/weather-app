@@ -57,10 +57,12 @@ const CityDataCard = (props) =>{
     return(
         <CardContainer>
             <CityText>{props.city.city}</CityText>
-            <TemperatureText color = {color}>{props.city.temperature}°F</TemperatureText>
+            <div style = {{background: "white", width: "150px", height: "150px", textAlign: "center", verticalAlign: "center", borderRadius: "50%"}}>  <TemperatureText  style = {{fontSize: "50px", padding: "50px 0px"}} color = {color}>{props.city.temperature}°F</TemperatureText>  </div>
+            <div style = {{padding: "20px",display: "flex", justifyContent: "space-between"}}>
+            <p>Range: </p>
             {
                 !editing
-                    ? <TemperatureText>{props.city.range[0]}°F</TemperatureText>
+                    ?<TemperatureText>{props.city.range[0]}°F</TemperatureText>
                     :<RangeInput
                         type = "number" 
                         value = {newRange.minimum} 
@@ -69,9 +71,10 @@ const CityDataCard = (props) =>{
                         onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
                     />
             }
+            <p> to </p>
             {
                 !editing
-                    ? <TemperatureText>{props.city.range[1]}°F</TemperatureText>
+                    ?<TemperatureText>{props.city.range[1]}°F</TemperatureText>
                     :<RangeInput
                         type = "number" 
                         value = {newRange.maximum} 
@@ -80,6 +83,7 @@ const CityDataCard = (props) =>{
                         onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
                     />
             }
+            </div>
             {
                 !editing
                     ? null
