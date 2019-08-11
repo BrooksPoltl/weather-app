@@ -1,6 +1,5 @@
 import React from 'react';
 import CityDataCard from './CityDataCard';
-import DataLabel from './DataLabel';
 
 import {
 
@@ -17,7 +16,6 @@ const CityData = (props) =>{
             
             <div>
                 <CitiesLabels>Cities that match your range:</CitiesLabels>
-                <DataLabel/>
                 {props.cities.inRangeCities.map((city, index) =>{
                         return <CityDataCard 
                                 halfCities = {props.inRangeCities}
@@ -29,7 +27,6 @@ const CityData = (props) =>{
                             />
                 })}
                 <CitiesLabels>Cities that are out of your range:</CitiesLabels>
-                <DataLabel/>
                 {
                 props.cities.notInRangeCities.map((city, index) =>{
                         return <CityDataCard 

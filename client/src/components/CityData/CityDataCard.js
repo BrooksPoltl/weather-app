@@ -10,7 +10,9 @@ import {
     TemperatureText,
     SubmitButton,
     RangeInput,
-    CityText
+    CityText,
+    MainTempText,
+    MainTempWrapper
 
 } from './styling/CityDataCard.styling';
 
@@ -57,7 +59,9 @@ const CityDataCard = (props) =>{
     return(
         <CardContainer>
             <CityText>{props.city.city}</CityText>
-            <div style = {{background: "white", width: "150px", height: "150px", textAlign: "center", verticalAlign: "center", borderRadius: "50%"}}>  <TemperatureText  style = {{fontSize: "50px", padding: "50px 0px"}} color = {color}>{props.city.temperature}°F</TemperatureText>  </div>
+            <MainTempWrapper>
+                  <MainTempText color = {color}>{props.city.temperature}°F</MainTempText>  
+            </MainTempWrapper>
             <div style = {{padding: "20px",display: "flex", justifyContent: "space-between"}}>
             <p>Range: </p>
             {
