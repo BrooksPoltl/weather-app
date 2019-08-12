@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled('div')`
-    border: 1px solid red;
+    border: 1px solid white;s
+    border-radius: 8px;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4), 0px 2px 2px 0px rgba(0,0,0,0.4), 0px 3px 1px -2px rgba(0,0,0,0.4);
     width: 300px;
     height: 300px;
     margin: 30px;
@@ -37,8 +39,20 @@ export const CityText = styled('p')`
     padding: 15px 0px;
 `
 export const RangeInput = styled('input')`
+    width: 20px;
 ` 
 
 export const SubmitButton = styled('button')`
 
+`
+
+export const RangeWrapper = styled('div')`
+    width: 150px;
+    font-size: 18px;
+    margin: 10px 75px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    text-shadow: 1px 1px 2px black;
+    color: white;
 `

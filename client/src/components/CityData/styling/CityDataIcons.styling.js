@@ -12,4 +12,5 @@ export const IconWrapper = styled('div')`
 export const Icon = styled('div')`
     color: white;
     font-size: 20px;
+    cursor: pointer;
 `

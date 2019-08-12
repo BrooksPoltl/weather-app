@@ -12,7 +12,8 @@ import {
     RangeInput,
     CityText,
     MainTempText,
-    MainTempWrapper
+    MainTempWrapper,
+    RangeWrapper
 
 } from './styling/CityDataCard.styling';
 
@@ -62,42 +63,42 @@ const CityDataCard = (props) =>{
             <MainTempWrapper color = {color}>
                   <MainTempText color = {color}>{props.city.temperature}°F</MainTempText>  
             </MainTempWrapper>
-            <div style = {{padding: "20px",display: "flex", justifyContent: "space-between"}}>
-            <p>Range: </p>
-            {
-                !editing
-                    ?<TemperatureText>{props.city.range[0]}°F</TemperatureText>
-                    :<RangeInput
-                        type = "number" 
-                        value = {newRange.minimum} 
-                        name = "minimum" 
-                        placeholder = "minimum"
-                        onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
-                    />
-            }
-            <p> to </p>
-            {
-                !editing
-                    ?<TemperatureText>{props.city.range[1]}°F</TemperatureText>
-                    :<RangeInput
-                        type = "number" 
-                        value = {newRange.maximum} 
-                        name = "maximum" 
-                        placeholder = "maximum"
-                        onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
-                    />
-            }
-            </div>
-            {
-                !editing
-                    ? null
-                    :<SubmitButton
-                        onClick = {(event)=>handleEdit(event, props.index,props.city.inRange,props.id)}
-                     >
-                            submit
-                    </SubmitButton>
-
-            }
+            <RangeWrapper >
+                <p>Range: </p>
+                {
+                    !editing
+                        ?<TemperatureText>{props.city.range[0]}°F</TemperatureText>
+                        :<RangeInput
+                            type = "number" 
+                            value = {newRange.minimum} 
+                            name = "minimum" 
+                            placeholder = "minimum"
+                            onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
+                        />
+                }
+                <p> to </p>
+                {
+                    !editing
+                        ?<TemperatureText>{props.city.range[1]}°F</TemperatureText>
+                        :<RangeInput
+                            type = "number" 
+                            value = {newRange.maximum} 
+                            name = "maximum" 
+                            placeholder = "maximum"
+                            onChange = {(event)=>changeHandler(event,newRange, setNewRange)}
+                        />
+                }
+                </RangeWrapper>
+                {
+                    !editing
+                        ? null
+                        :<SubmitButton
+                            onClick = {(event)=>handleEdit(event, props.index,props.city.inRange,props.id)}
+                        >
+                                submit
+                        </SubmitButton>
+                }
+            
             <CityDataIcons handleDelete = {handleDelete} editing = {editing} setEditing = {setEditing} {...props}/>
            
         </CardContainer>

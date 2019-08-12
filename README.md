@@ -6,16 +6,6 @@ https://sad-payne-a7b2e9.netlify.com/
 ### Wireframe
 https://balsamiq.cloud/stofa4k/p531wha
 
-## Getting started locally
- after cloning the repository cd into the directory and run,
- ``` 
-  npm install 
- ```
- then cd into the client directory and run,
- ```
- npm install
- ```
- if that doesnt work try running yarn as well.
 
 ## Models
 -------------
