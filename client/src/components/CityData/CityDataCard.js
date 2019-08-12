@@ -57,9 +57,9 @@ const CityDataCard = (props) =>{
     }
 
     return(
-        <CardContainer>
+        <CardContainer color = {color}>
             <CityText>{props.city.city}</CityText>
-            <MainTempWrapper>
+            <MainTempWrapper color = {color}>
                   <MainTempText color = {color}>{props.city.temperature}°F</MainTempText>  
             </MainTempWrapper>
             <div style = {{padding: "20px",display: "flex", justifyContent: "space-between"}}>

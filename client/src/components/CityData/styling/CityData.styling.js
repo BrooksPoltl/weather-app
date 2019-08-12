@@ -26,4 +26,5 @@ export const CitiesLabels = styled('h2')`
     font-weight: bold;
     font-size: 30px;
     margin: 20px 0 px;
+    color: white;
 `
