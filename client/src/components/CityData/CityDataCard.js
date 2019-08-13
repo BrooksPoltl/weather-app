@@ -21,7 +21,7 @@ import {
 const CityDataCard = (props) =>{
     const [color, setColor] = useState("black");
     const [editing, setEditing ] = useState(false); 
-    const [newRange, setNewRange] = useState({minimum: 0,maximum: 0})
+    const [newRange, setNewRange] = useState({minimum: props.city.range[0],maximum: props.city.range[1]});
     useEffect(()=>{
         
         handleColor(props, setColor);
@@ -95,7 +95,7 @@ const CityDataCard = (props) =>{
                         :<SubmitButton
                             onClick = {(event)=>handleEdit(event, props.index,props.city.inRange,props.id)}
                         >
-                                submit
+                                update
                         </SubmitButton>
                 }
             
