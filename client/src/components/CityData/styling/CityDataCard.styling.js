@@ -56,10 +56,9 @@ export const SubmitButton = styled('button')`
 `
 
 export const RangeWrapper = styled('div')`
-    width: 150px;
+    width: 175px;
     font-size: 18px;
-    margin: 10px 75px;
-    border: 1px solid red;
+    margin: 10px 63px;
     display: flex;
     justify-content: space-between;
     text-shadow: 1px 1px 2px black;

@@ -4,7 +4,8 @@ import CityDataCard from './CityDataCard';
 import {
 
     LabelHeader,
-    CitiesLabels
+    CitiesLabels,
+    CardContainer
 
 } from './styling/CityData.styling'
 
@@ -17,7 +18,7 @@ const CityData = (props) =>{
             <div>
                 
                 <CitiesLabels>Cities that match your range:</CitiesLabels>
-                <div>
+                <CardContainer>
                     {props.cities.inRangeCities.map((city, index) =>{
                             return <CityDataCard 
                                     halfCities = {props.inRangeCities}
@@ -28,9 +29,9 @@ const CityData = (props) =>{
                                     {...props}
                                 />
                     })}
-                </div>
+                </CardContainer>
                 <CitiesLabels>Cities that are out of your range:</CitiesLabels>
-                <div style = {{margin : "40px 0px", display: "flex", flexWrap: "wrap", border: "3px solid red"}}>
+                <CardContainer>
                     {
                     props.cities.notInRangeCities.map((city, index) =>{
                             return <CityDataCard 
@@ -42,7 +43,7 @@ const CityData = (props) =>{
                                     {...props}
                                 />
                     })}
-                </div>
+                </CardContainer>
             </div>
         </div>
     )

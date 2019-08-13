@@ -14,6 +14,7 @@ export const LabelHeader = styled('h1')`
     font-size: 50px;
     font-weight: bold;
     margin: 20px 0px;
+    color: white;
 `
 export const DescriptiveText = styled('p')`
     font-weight: bold;
@@ -27,4 +28,9 @@ export const CitiesLabels = styled('h2')`
     font-size: 30px;
     margin: 20px 0 px;
     color: white;
+`
+
+export const CardContainer = styled('div')`
+    display: flex;
+    flex-wrap: wrap;
 `

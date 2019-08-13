@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import AddCityForm from '../../components/AddCityForm/AddCityForm';
 import CityData from '../../components/CityData/CityData';
+import NavBar from '../../components/NavBar/NavBar';
 import Header from '../../components/Header/Header';
 import axios from 'axios';
 
@@ -36,6 +37,7 @@ const DashboardPage = (props) =>{
  
     return (
         <AppContainer>
+            <NavBar/>
             <TopSectionContainer>
                 <Header {...props}/>
                 <AddCityForm {...props}/>
