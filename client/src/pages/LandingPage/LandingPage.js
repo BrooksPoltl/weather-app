@@ -10,7 +10,7 @@ import { LandingPageContainer } from './LandingPage.styling';
 
 const LandingPage = (props) =>{
     return (
-        <div style = {{background: "#212c3d"}}>
+        <div>
             <NavBar/>
             <LandingPageContainer>
                 <Information/>

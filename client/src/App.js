@@ -12,7 +12,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 
 const App = (props) => {
   return (
-      <div>
+      <div style = {{background: "#212c3d"}}>
           <Switch>
               <Route exact path = '/' component = {()=> <LandingPage {...props}/>}/>
               <Route exact path = '/login' component = {()=> <LoginPage {...props}/>}/>

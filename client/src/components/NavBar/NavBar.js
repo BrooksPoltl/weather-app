@@ -1,15 +1,19 @@
 import React from 'react';
 
 import {
-    NavWrapper
+
+    NavWrapper,
+    NavText,
+    LogoutButton,
+
 } from './NavBar.styling';
 
 
 const NavBar = (props) =>{
     return(
         <NavWrapper>
-            <h1>Weather Tracker</h1>
-            <button>Logout</button>
+            <NavText>Weather Tracker</NavText>
+            <LogoutButton>Logout</LogoutButton>
         </NavWrapper>
     )
 }

@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 
 export const NavWrapper = styled('div')`
-    border: 1px solid red;
-    color: red;
     display: flex;
     justify-content: space-between;
-    margin: 20px 0px;
+    padding: 20px 5%;
     background: #212c3d;
+`
+
+export const NavText = styled('h1')`
+    color: white;
+    font-size: 40px;
+`
+
+export const LogoutButton = styled('button')`
+    border: none;
+    background: #212c3d;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 `

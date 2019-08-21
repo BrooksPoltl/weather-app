@@ -7,10 +7,13 @@ import NavBar from '../../components/NavBar/NavBar';
 
 const LoginPage = (props) =>{
     return (
-        <AppContainer>
+        <div>
             <NavBar/>
-            <LoginForm {...props}/>
-        </AppContainer>
+            <AppContainer>
+                <LoginForm {...props}/>
+            </AppContainer>
+        </div>
+        
     )
 }
 
