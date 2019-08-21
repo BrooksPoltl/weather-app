@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
 
@@ -10,10 +10,25 @@ import {
 
 
 const NavBar = (props) =>{
+    const [buttonText, setButtonText] = useState('Signup');
+    const token = localStorage.getItem('token');
+    useEffect(()=>{
+        if(token){
+            setButtonText('Logout');
+        }
+    })
+    
+    const logout = () =>{
+        localStorage.removeItem('token')
+        props.history.push("/dashboard")
+        if(buttonText === "Signup"){
+            props.history.push("/")
+        }
+    };
     return(
         <NavWrapper>
             <NavText>Weather Tracker</NavText>
-            <LogoutButton>Logout</LogoutButton>
+            <LogoutButton onClick = {logout}>{buttonText}</LogoutButton>
         </NavWrapper>
     )
 }

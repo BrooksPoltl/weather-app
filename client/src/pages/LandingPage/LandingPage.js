@@ -11,7 +11,7 @@ import { LandingPageContainer } from './LandingPage.styling';
 const LandingPage = (props) =>{
     return (
         <div>
-            <NavBar/>
+            <NavBar {...props}/>
             <LandingPageContainer>
                 <Information/>
                 <SignupForm {...props}/>

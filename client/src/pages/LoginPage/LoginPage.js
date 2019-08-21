@@ -8,12 +8,11 @@ import NavBar from '../../components/NavBar/NavBar';
 const LoginPage = (props) =>{
     return (
         <div>
-            <NavBar/>
+            <NavBar {...props}/>
             <AppContainer>
                 <LoginForm {...props}/>
             </AppContainer>
         </div>
-        
     )
 }
 

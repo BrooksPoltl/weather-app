@@ -37,14 +37,14 @@ const DashboardPage = (props) =>{
  
     return (
         <div>
-            <NavBar/>
-                <AppContainer>
-                    <TopSectionContainer>
-                        <Header {...props}/>
-                        <AddCityForm {...props}/>
-                    </TopSectionContainer>
-                    <CityData cities = {city} {...props}/>
-                </AppContainer>
+            <NavBar {...props}/>
+            <AppContainer>
+                <TopSectionContainer>
+                    <Header {...props}/>
+                    <AddCityForm {...props}/>
+                </TopSectionContainer>
+                <CityData cities = {city} {...props}/>
+            </AppContainer>
         </div>
     )
 }
