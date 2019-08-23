@@ -1,4 +1,4 @@
-# Weather App
+# Weather Tracker
 ### trello board
 https://trello.com/b/625C4IAO/weather-app
 ### deployment URL
