@@ -12,7 +12,6 @@ import {
     CityInput,
     FormHeader,
     FormButton,
-    ButtonWrapper,
     InputWrapper,
     LoadingIcon,
     ErrorText
@@ -81,9 +80,8 @@ const AddCityForm = (props) =>{
                     ?<LoadingIcon>
                         <i class="fas fa-circle-notch fa-spin"></i>
                     </LoadingIcon>
-                    :<ButtonWrapper disabled = {valid}>
-                        <FormButton disabled  = {valid} type = "submit">add city</FormButton>
-                    </ButtonWrapper>
+                    :<FormButton disabled  = {valid} type = "submit">add city</FormButton>
+                    
                 }
                 
             </CityForm>

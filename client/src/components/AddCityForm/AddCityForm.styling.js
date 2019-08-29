@@ -67,13 +67,7 @@ export const FormButton = styled('button')`
     background: white;
     font-weight: bold;
 `
-export const ButtonWrapper = styled('div')`
-    background: ${props => props.disabled?"Gray":"linear-gradient( to right, #FF9F1C, #0055AA)"};
-    margin: 20px 0px;
-    position: relative;
-    border-radius: 5px;
 
-`
 export const InputWrapper = styled('div')`
     width: 100%;
     display: flex;
