@@ -61,7 +61,7 @@ export const FormHeader = styled('h1')`
 export const FormButton = styled('button')`
     width: 100px;
     height: 25px;
-    margin: 3px;
+    margin: 15px;
     border: none;
     border-radius: 5px;
     background: white;
