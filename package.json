@@ -4,7 +4,7 @@
   "description": "https://trello.com/b/625C4IAO/weather-app\r ### deployment URL\r  Placeholder\r ### Wireframe\r https://balsamiq.cloud/stofa4k/p531wha",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
